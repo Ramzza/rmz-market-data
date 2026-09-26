@@ -1,11 +1,4 @@
-__pycache__/
-*.py[cod]
-.venv/
-venv/
-.pytest_cache/
-coverage.xml
-.coverage
-.env
+node_modules/
 dist/
-build/
-*.egg-info/
+coverage/
+.env
