@@ -3,6 +3,8 @@
 A TypeScript library and CLI for retrieving historical stock and ETF prices
 from Yahoo Finance and RON exchange rates from the [CursBNR archive](https://www.cursbnr.ro/arhiva-curs-bnr).
 
+Licensed under the [MIT License](LICENSE).
+
 ## Requirements and installation
 
 Requires Node.js 22 or later.

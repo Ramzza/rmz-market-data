@@ -1,6 +1,7 @@
 {
   "name": "rmz-market-data",
   "version": "0.1.0",
+  "license": "MIT",
   "description": "Historical stock, ETF, and RON exchange-rate data",
   "type": "module",
   "engines": {
