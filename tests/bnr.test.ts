@@ -14,7 +14,7 @@ const ratePage = `
 </table>
 `;
 
-test("parses rates and normalizes the HUF quote", () => {
+test("PRD-002: parses rates and normalizes the HUF quote", () => {
   const rates = parseRates(ratePage, ["EUR", "USD", "HUF"], "2024-01-02");
   assert.deepEqual(rates.slice(0, 2), [
     { date: "2024-01-02", currency: "EUR", ronPerUnit: 4.9746 },
@@ -24,7 +24,7 @@ test("parses rates and normalizes the HUF quote", () => {
   assert.ok(Math.abs(rates[2].ronPerUnit - 0.012995) < Number.EPSILON);
 });
 
-test("fetches each inclusive date", async () => {
+test("PRD-002: fetches each inclusive date", async () => {
   const urls: string[] = [];
   const mockFetch: typeof fetch = async (input) => {
     urls.push(String(input));
@@ -44,7 +44,7 @@ test("fetches each inclusive date", async () => {
   ]);
 });
 
-test("treats dates as whole calendar days", async () => {
+test("PRD-002: treats dates as whole calendar days", async () => {
   const urls: string[] = [];
   const mockFetch: typeof fetch = async (input) => {
     urls.push(String(input));
@@ -61,7 +61,7 @@ test("treats dates as whole calendar days", async () => {
   assert.deepEqual(urls, ["https://www.cursbnr.ro/arhiva-curs-bnr-2024-01-02"]);
 });
 
-test("reports missing currencies and reversed ranges", async () => {
+test("PRD-002: reports missing currencies and reversed ranges", async () => {
   assert.throws(
     () => parseRates("<table><tr><td>EUR</td><td>Euro</td><td>4.9</td></tr></table>", ["HUF"], "2024-01-02"),
     /has no HUF rate/,
