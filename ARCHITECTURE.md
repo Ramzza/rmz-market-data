@@ -5,7 +5,7 @@
 ## Components and flow
 
 - `src/cli.ts` defines the `prices` and `exchange-rates` commands and serializes results as JSON or CSV.
-- `src/dates.ts` parses and validates inclusive date ranges. `src/errors.ts` defines the domain error used for invalid input and source-data failures.
+- `src/dates.ts` parses and validates inclusive date ranges. `src/errors.ts` defines the domain error used for invalid input and CursBNR source failures; Yahoo Finance errors propagate from its client.
 - `src/prices.ts` queries Yahoo Finance, filters quotes to the requested dates, and maps provider results to the library's `PriceQuote` shape.
 - `src/bnr.ts` fetches one archive page per requested date, parses the rate table with Cheerio, and maps rates to RON per one currency unit. In particular, it normalizes the archive's HUF-per-100 quote.
 - `src/index.ts` exports the public library functions and types.
